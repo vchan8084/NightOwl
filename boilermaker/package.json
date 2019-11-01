@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server",
     "start-dev": "webpack -w & nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV='test' mocha \"./server/**/*.spec.js\" --require @babel/polyfill --require @babel/register"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +21,7 @@
     "pg": "^7.12.1",
     "pg-hstore": "^2.3.3",
     "react": "^16.11.0",
+    "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.11.0",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
@@ -34,8 +35,12 @@
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
     "babel-loader": "^8.0.6",
+    "chai": "^4.2.0",
     "css-loader": "^3.2.0",
+    "enzyme": "^3.10.0",
+    "mocha": "^6.2.2",
     "style-loader": "^1.0.0",
+    "supertest": "^4.0.2",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9"
   }
