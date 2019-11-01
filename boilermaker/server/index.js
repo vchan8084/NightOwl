@@ -12,6 +12,16 @@ const dbStore = new SequelizeStore({ db: db });
 //passport
 const passport = require('passport');
 
+// put these in the entry point
+// const secrets = require('./secrets');
+// const main = require('./main')
+
+if (process.env.NODE_ENV === 'development') {
+  require('./secrets'); // this will mutate the process.env object with your secrets.
+}
+
+require('./main');
+
 // passport registration
 passport.serializeUser((user, done) => {
   try {
