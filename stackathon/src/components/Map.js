@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import axios from 'axios';
 
@@ -91,21 +91,35 @@ class Map extends React.Component {
             />
           );
         })}
-        <Marker coordinate={this.state} pinColor="blue" title={'My Location'} />
+        <Marker coordinate={this.state}>
+          <View style={styles.radius}>
+            <View style={styles.marker} />
+          </View>
+        </Marker>
       </MapView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
-    justifyContent: 'flex-end',
+  radius: {
+    height: 50,
+    width: 50,
+    borderRadius: 50 / 2,
+    backgroundColor: 'rgba(0, 122, 255, 0.1)',
+    borderWidth: 1,
+    borderColor: 'rgba(0, 122, 255, 0.3)',
     alignItems: 'center',
+    justifyContent: 'center',
+  },
+  marker: {
+    height: 20,
+    width: 20,
+    borderWidth: 3,
+    borderColor: 'white',
+    borderRadius: 20 / 2,
+    overflow: 'hidden',
+    backgroundColor: '#007AFF',
   },
   map: {
     position: 'absolute',
