@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   ImageBackground,
 } from 'react-native';
-import Constants from 'expo-constants';
 
 export default class Home extends React.Component {
   render() {
@@ -21,8 +20,9 @@ export default class Home extends React.Component {
         >
           <TouchableOpacity
             onPress={() => this.props.navigation.navigate('Map')}
+            style={styles.buttonStyle}
           >
-            <Text style={styles.button}>Go To Map</Text>
+            <Text style={styles.textStyle}>Night Owl</Text>
           </TouchableOpacity>
         </ImageBackground>
       </View>
@@ -31,16 +31,38 @@ export default class Home extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  button: {
-    backgroundColor: 'blue',
-    borderColor: 'white',
+  // button: {
+  //   width: '100%'
+  //   backgroundColor: 'black',
+  //   // borderWidth: 1,
+  //   // borderRadius: 1,
+  //   color: 'white',
+  //   fontSize: 24,
+  //   fontWeight: 'bold',
+  //   // overflow: 'hidden',
+  //   // padding: 5,
+  //   textAlign: 'center',
+  //   // justifyContent: 'center',
+  // },
+  buttonStyle: {
+    backgroundColor: '#fff',
     borderWidth: 1,
-    borderRadius: 12,
-    color: 'white',
+    borderRadius: 5,
+    borderColor: '#336633',
+    paddingTop: 2,
+    paddingBottom: 2,
+    paddingRight: 10,
+    paddingLeft: 10,
+    marginTop: 20,
+    alignSelf: 'center',
+  },
+  textStyle: {
+    fontFamily: 'Didot-Bold',
+    alignSelf: 'center',
+    color: 'black',
     fontSize: 24,
-    fontWeight: 'bold',
-    overflow: 'hidden',
-    padding: 12,
-    textAlign: 'center',
+    fontWeight: '800',
+    paddingTop: 10,
+    paddingBottom: 10,
   },
 });
